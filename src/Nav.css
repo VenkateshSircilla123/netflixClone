@@ -1,0 +1,26 @@
+.nav{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    top: 0;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+    z-index: 1;
+}
+.nav-contents{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    padding: 5px;
+    justify-content: space-between;
+}
+.nav-avatar{
+    height: 40px;
+}
+.nav-black{
+    background-color: black;
+}
+.nav img {
+    cursor: pointer;
+}
