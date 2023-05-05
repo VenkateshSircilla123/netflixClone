@@ -37,9 +37,9 @@ function Banner() {
         if (trailerUrl){
             setTrailerUrl('')
         } else {
-            console.log(movie)
+            // console.log(movie)
             movieTrailer(movie?.name || movie?.title).then((url)=>{
-                console.log(url)
+                // console.log(url)
                 const urlParms = new URLSearchParams(new URL(url).search)
                 setTrailerUrl(urlParms.get('v'))
 

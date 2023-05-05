@@ -6,7 +6,6 @@ import Youtube from 'react-youtube'
 import movieTrailer from 'movie-trailer'
 function Row({title ,fetchURL, isLarge = false}) {
 
-    const genre = useSelector((state)=>state.genre)
     const baseURL = "https://image.tmdb.org/t/p/original"
     const [movies, setMovies] = React.useState([])
     const [trailerUrl, setTrailerUrl] = useState('')
@@ -32,9 +31,9 @@ function Row({title ,fetchURL, isLarge = false}) {
         if (trailerUrl){
             setTrailerUrl('')
         } else {
-            console.log(movie)
+            // console.log(movie)
             movieTrailer(movie?.title || movie?.name).then((url)=>{
-                console.log(url)
+                // console.log(url)
                 const urlParms = new URLSearchParams(new URL(url).search)
                 setTrailerUrl(urlParms.get('v'))
 
