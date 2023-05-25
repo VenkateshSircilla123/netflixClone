@@ -1,11 +1,11 @@
 import axios from './axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Row.css'
-import {  useSelector } from 'react-redux'
 import Youtube from 'react-youtube'
 import movieTrailer from 'movie-trailer'
-function Row({title ,fetchURL, isLarge = false}) {
 
+function Row({title ,fetchURL, isLarge = false}) {
+    
     const baseURL = "https://image.tmdb.org/t/p/original"
     const [movies, setMovies] = React.useState([])
     const [trailerUrl, setTrailerUrl] = useState('')
@@ -21,13 +21,15 @@ function Row({title ,fetchURL, isLarge = false}) {
 
 
     const opts = {
-        height:"390",
+        height:"390px",
         width: "100%",
         playerVars: {
             autoplay: 1,
         },
     }
+
     const handleClick = (movie)=>{
+        
         if (trailerUrl){
             setTrailerUrl('')
         } else {
@@ -36,6 +38,7 @@ function Row({title ,fetchURL, isLarge = false}) {
                 // console.log(url)
                 const urlParms = new URLSearchParams(new URL(url).search)
                 setTrailerUrl(urlParms.get('v'))
+                
 
             }).catch((error) => console.log(error))
         }
@@ -60,7 +63,7 @@ function Row({title ,fetchURL, isLarge = false}) {
 
             }
         </div>
-        {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
+        {trailerUrl && <div className='youtube'><Youtube className='video' videoId={trailerUrl} opts={opts} /><button className='vbtn' onClick={handleClick}>Close</button></div>}
     </div>
   )
 }

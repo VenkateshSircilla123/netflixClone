@@ -27,7 +27,7 @@ function Banner() {
 
 
   const opts = {
-        height:"390",
+        height:"440px",
         width: "100%",
         playerVars: {
             autoplay: 1,
@@ -69,9 +69,8 @@ function Banner() {
     </div>
     <div className='banner-fade-bottom' />
     </header>
-    {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
+    {trailerUrl && <div className='youtube'><Youtube videoId={trailerUrl} opts={opts} className='video' /><button onClick={handleClick} className='vbtn'>Close</button></div>}
     </>
-    
   )
 }
 

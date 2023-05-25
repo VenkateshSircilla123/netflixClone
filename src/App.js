@@ -36,6 +36,7 @@ function App() {
       (<Routes>
         <Route exact path='/' element={<Homescreen />} />
         <Route path='/profile' element={<ProfileScreen />} />
+
         </Routes>
       )}
       
